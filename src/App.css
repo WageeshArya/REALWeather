@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+:root{
+}
+body{ 
+    margin: 0;
+    font-family: 
+
+}
+.navbar{
+    background-color: #90e0ef;
+    display: block;
+    width: 100%;
+    height: 10vh;
+}
+.title{
+    color: white;
+    display: inline;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 2rem;
+    font-weight: 800;
+    line-height: 10vh;
+}
+ul{
+    list-style: none;
+    margin: 0;
+}
+.item{
+    font-family: 'Montserrat', sans-serif;
+    float: right;
+    font-size: 1.25rem;
+    margin-right: 1.5rem;
+    height: 100%;
+    line-height: 10vh;
+    padding: 0 1rem;
+}
+.item:hover{
+    background-color: #caf0f8;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.item a{ 
+    text-decoration: none;
+    color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+form{
+    margin: 3rem auto;
+    padding: 2rem;
+    box-shadow: 10px 10px 20px #8d99ae;
+    width: 70%;
+    z-index: 1;
+    background-color: white;
+}
+
+form > input[type='text'] {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    width: 80%;
+}
+
+form > input[type='text']:focus {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+}
+
+form > h2 {
+    font-family: 'Karla', sans-serif;
+}
+
+label{
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* .img1 {
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 300px;
+    position: fixed;
+    z-index: -1;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.img2 {
+    top: '0';
+    right: '0';
+    width: '250px';
+    height: '350px';
+    position: 'fixed';
+    z-Index: '-1';
+  } */
