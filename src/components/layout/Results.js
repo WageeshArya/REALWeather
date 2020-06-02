@@ -4,9 +4,9 @@ export const Result = () => {
     
     const weatherContext = useContext(WeatherContext);
     console.log(weatherContext);
-    // if(!weatherContext.data){
-    //     return <Fragment></Fragment>
-    // }
+    if(!weatherContext.data){
+        return <Fragment></Fragment>
+    }
 
     const sunny = <i className="main fas fa-sun"></i>;
     const clear = <i className="main far fa-sun"></i>;
@@ -31,35 +31,39 @@ export const Result = () => {
             <h3>The weather in {weatherContext.city} looks like: </h3>
             
             <table>
+                <tbody>
                 <tr>
                     <td>
                         {weather}
                     </td>
-                    <td>
-                        <div class="weather">
-                            <h4 class="weather-main">{weatherContext.main}</h4>
-                            <p class="weather-main desc">{weatherContext.desc}</p>
+                    <td className="weather">
+                        <div>
+                            <h4 className="weather-main">{weatherContext.main}</h4>
+                            <p className="weather-main desc">{weatherContext.desc}</p>
                             <strong>Temp: {(weatherContext.temp - 273.15).toFixed(2)} </strong>°C
                         </div>
                     </td>
                 </tr>
+                </tbody>
             </table>
         
             <div>
-                <p class="minmax">The highest will be <strong>{(weatherContext.maxTemp - 273.15).toFixed(2)}</strong> °C and the lowest will be <strong>{(weatherContext.minTemp - 273.15).toFixed(2)}</strong> °C </p>
+                <p className="minmax">The highest will be <strong>{(weatherContext.maxTemp - 273.15).toFixed(2)}</strong> °C and the lowest will be <strong>{(weatherContext.minTemp - 273.15).toFixed(2)}</strong> °C </p>
             </div>
 
             <table> 
+                <tbody>
                 <tr>
-                    <td>
-                        <p>Wind: {weatherContext.wind.speed} mph</p>
-                        Angle: {weatherContext.wind.angle}°
-
+                    <td className="windInfo">
+                        <p className="windInfo"><strong>Wind:</strong> {weatherContext.wind.speed} mph</p>
+                        <p><strong>Angle:</strong> {weatherContext.wind.angle}°</p>
                     </td>
-                    <td>
-
+                    <td className="areaInfo">
+                        <p className="areaInfo"><strong>Country:</strong> {weatherContext.country}</p>
+                        <p><strong>ID:</strong> {weatherContext.id}</p>
                     </td>
                 </tr>
+                </tbody>
             </table>
 
         </div>

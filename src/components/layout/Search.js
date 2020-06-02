@@ -6,7 +6,6 @@ export const Search = () => {
     const [text,setText] = useState('');
 
     const weatherContext = useContext(WeatherContext);
-    console.log(weatherContext);
     const textChange = (e) => {
         setText(e.target.value);
     }
@@ -22,7 +21,6 @@ export const Search = () => {
         }
         else{
             weatherContext.getData(text);
-            console.log(weatherContext.wind.speed)
             setText('');
         }
     }

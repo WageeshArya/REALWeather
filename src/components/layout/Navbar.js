@@ -6,8 +6,8 @@ export const Navbar = () => {
             <nav className="navbar">
                 <ul>
                     <li className="title"><i className="fas fa-rainbow" /> REALWeather</li>
-                    <li className="item"><a href="#!">Help</a></li>
-                    <li className="item"><a href="#1">About</a></li>
+                    <div className="mobile">
+                    </div>
                 </ul>
             </nav>
         </Fragment>
