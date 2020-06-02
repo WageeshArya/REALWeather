@@ -1,23 +1,30 @@
 import React, {useState, useContext} from 'react';
-import axios from 'axios';
-
+import WeatherContext from '../../context/weather/weatherContext';
 export const Search = () => {
 
     const [type,setType] = useState('name');
     const [text,setText] = useState('');
 
+    const weatherContext = useContext(WeatherContext);
+    console.log(weatherContext);
     const textChange = (e) => {
         setText(e.target.value);
-        console.log(process.env.REACT_APP_WEATHER_API_KEY);
     }
 
     const onChange = (e) => {
         setType(e.target.value);
     }
 
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        const res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+        if(text === ""){
+            alert("Please enter something");
+        }
+        else{
+            weatherContext.getData(text);
+            console.log(weatherContext.wind.speed)
+            setText('');
+        }
     }
 
     return (
@@ -27,10 +34,10 @@ export const Search = () => {
                     So, how's the weather?
                 </h4>
                 <label htmlFor="search">
-                    {`Please enter the ${type} of the city`}
+                    <p>{`Please enter the ${type} of the city / area`}</p>
                 </label>
                 <div className="row">
-                    <input className="nine columns search" type="text" name="search" onChange={textChange} />
+                    <input className="nine columns search" type="text" name="search" onChange={textChange} value={text} />
 
                     <select name="type" className="three columns" onChange={onChange}>
                         <option disabled>select type</option>

@@ -1,2 +1,3 @@
-export const SET_CITY = 'SET_CITY';
+export const GET_DATA = 'GET_DATA';
 export const SET_LOADING = 'SET_LOADING';
+export const SET_TRUE = 'SET_TRUE';

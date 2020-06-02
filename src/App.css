@@ -49,6 +49,7 @@ form{
     width: 70%;
     z-index: 1;
     background-color: white;
+    border-radius: 10px;
 }
 
 form > input[type='text'] {
@@ -66,13 +67,54 @@ form > h2 {
     font-family: 'Karla', sans-serif;
 }
 
-label{
+label {
     font-family: 'Montserrat';
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-/* .img1 {
+.result {
+    background-color: white;
+    box-shadow: 10px 10px 20px #8d99ae;
+    width: 70%;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: auto;
+    z-index: 2;
+}
+
+table{
+    width: 100%;
+   
+}
+
+.main {
+    font-size: 9rem;
+    color: #90e0ef;
+}
+
+.weather {
+    float: right;
+    text-align: right;
+    background-color: #e3f6f5;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.weather-main {
+    margin: 0;
+}
+
+.minmax {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+
+.desc {
+    font-size: 1rem;
+}
+
+.img1 {
     top: 0;
     left: 0;
     width: 150px;
@@ -81,10 +123,10 @@ label{
     z-index: -1;
   }
 .img2 {
-    top: '0';
-    right: '0';
-    width: '250px';
-    height: '350px';
-    position: 'fixed';
-    z-Index: '-1';
-  } */
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 350px;
+    position: fixed;
+    z-index: -1;
+  } 
