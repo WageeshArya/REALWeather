@@ -4,11 +4,8 @@ export const Navbar = () => {
     return (
         <Fragment>
             <nav className="navbar">
-                <ul>
-                    <li className="title"><i className="fas fa-rainbow" /> REALWeather</li>
-                    <div className="mobile">
-                    </div>
-                </ul>
+                <div className="title"><i className="fas fa-rainbow" /> REALWeather</div>
+                
             </nav>
         </Fragment>
     )

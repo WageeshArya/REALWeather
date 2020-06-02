@@ -11,9 +11,6 @@ body{
     width: 100%;
     height: 10vh;
 }
-.mobile {
-    display: inline;
-}
 .title{
     color: white;
     display: inline;
@@ -22,27 +19,6 @@ body{
     padding-left: 2rem;
     font-weight: 800;
     line-height: 10vh;
-}
-ul{
-    list-style: none;
-    margin: 0;
-}
-.item{
-    font-family: 'Montserrat', sans-serif;
-    float: right;
-    font-size: 1.25rem;
-    margin-right: 1.5rem;
-    height: 100%;
-    line-height: 10vh;
-    padding: 0 1rem;
-}
-.item:hover{
-    background-color: #caf0f8;
-}
-
-.item a{ 
-    text-decoration: none;
-    color: black;
 }
 
 form{
@@ -156,32 +132,16 @@ td{
     margin: 0;
 }
 
-
 @media (max-width: 500px) {
 
     .navbar {
         height: 100px;
-    }
-    .mobile {
-        display: block;
-        
-        text-justify: center;
-        position: relative;
-        text-align: center;
     }
     .title {
         font-size: 2.5rem;
         padding: 0.5rem;
         text-align: center;
         display: block;
-        height: 25px;
-    }
-    .item {
-        color: white;
-        padding: 0;
-        margin: 0;
-    }
-    .item :hover {
-        background-color: none;
+        height: 25px
     }
 }

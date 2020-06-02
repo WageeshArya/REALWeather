@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Navbar from './components/layout/Navbar';
 import Search from './components/layout/Search';
 import Results from './components/layout/Results';
