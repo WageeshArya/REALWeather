@@ -7,6 +7,7 @@ export const Result = () => {
         return <Fragment></Fragment>
     }
 
+    const mist = <i className="main fab fa-cloudsmith"></i>
     const sunny = <i className="main fas fa-sun"></i>;
     const clear = <i className="main far fa-sun"></i>;
     const rain = <i className="main fas fa-cloud-showers-heavy"></i>;
@@ -23,6 +24,7 @@ export const Result = () => {
         case "Clouds": weather = clouds; break;
         case "Haze": weather = haze; break;
         case "Smoke": weather = smoke; break;
+        case "Mist": weather = mist; break;
         default: ;
     }
 

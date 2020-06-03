@@ -5,12 +5,13 @@ import WeatherContext from './weatherContext';
 import WeatherReducer from './weatherReducer';
 
 let weatherAPIkey;
-
+console.log(process.env); 
 if(process.env.NODE_ENV !== 'production'){
-    weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
+    weatherAPIkey = process.env.REACT_APP_API_KEY;
 }else {
-    weatherAPIkey = process.env.WEATHER_API_KEY;
+    weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
   }
+  console.log(weatherAPIkey);
 
 export const WeatherState = props => {
     const initialState = {
@@ -41,21 +42,19 @@ export const WeatherState = props => {
     const getData = async (text, type) =>{
         setLoading();
         let res;
-        console.log(state);
-        console.log();
         switch(type){
             case "name":    
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${weatherAPIkey}`);
+                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${weatherAPIkey}`);
                             console.log("name -" + type);
                             break;
                 
             case "ID":      
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${weatherAPIkey}`); 
+                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${weatherAPIkey}`); 
                             console.log("ID -" + type);
                             break;
 
             case "zip code":
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${weatherAPIkey}`); 
+                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${weatherAPIkey}`); 
                             console.log("zip code -" + type);
                             break;
                 default: ;
