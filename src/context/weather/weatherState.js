@@ -29,24 +29,28 @@ export const WeatherState = props => {
 
     const setType = (type) => dispatch({type: SET_TYPE, payload: type })
 
-    const getData = async (text) =>{
+    const getData = async (text, type) =>{
         setLoading();
         let res;
-        switch(state.type){
-           
+        console.log();
+        switch(type){
             case "name":    
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+                            console.log("name -" + type);
+                            break;
                 
             case "ID":      
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); 
+                            console.log("ID -" + type);
+                            break;
 
             case "zip code":
-                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); 
+                            console.log("zip code -" + type);
+                            break;
                 default: ;
         }
-
-        
-        
+        console.log(res)
         dispatch({type: GET_DATA, payload: res.data});
         dispatch({type: SET_TRUE, payload: true})
     }

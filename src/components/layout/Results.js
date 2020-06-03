@@ -3,7 +3,6 @@ import WeatherContext from '../../context/weather/weatherContext';
 export const Result = () => {
     
     const weatherContext = useContext(WeatherContext);
-    console.log(weatherContext);
     if(!weatherContext.data){
         return <Fragment></Fragment>
     }

@@ -21,7 +21,8 @@ export const Search = () => {
             alert("Please enter something");
         }
         else{
-            weatherContext.getData(text);
+            console.log(type);
+            weatherContext.getData(text,type);
             setText('');
         }
     }
