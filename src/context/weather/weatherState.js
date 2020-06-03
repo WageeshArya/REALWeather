@@ -1,11 +1,12 @@
 import React, { useReducer } from 'react';
-import {SET_LOADING, GET_DATA, SET_TRUE} from '../types';
+import {SET_LOADING, GET_DATA, SET_TRUE, SET_TYPE} from '../types';
 import axios from 'axios';
 import WeatherContext from './weatherContext';
 import WeatherReducer from './weatherReducer';
 
 export const WeatherState = props => {
     const initialState = {
+        type: '',
         data: false,
         loading: false,
         city: '',
@@ -26,9 +27,25 @@ export const WeatherState = props => {
 
     const setLoading = () => dispatch({type: SET_LOADING});
 
+    const setType = (type) => dispatch({type: SET_TYPE, payload: type })
+
     const getData = async (text) =>{
         setLoading();
-        const res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+        let res;
+        switch(state.type){
+           
+            case "name":    
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+                
+            case "ID":      
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+
+            case "zip code":
+                            res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`); break;
+                default: ;
+        }
+
+        
         
         dispatch({type: GET_DATA, payload: res.data});
         dispatch({type: SET_TRUE, payload: true})
@@ -36,6 +53,7 @@ export const WeatherState = props => {
 
     return <WeatherContext.Provider
                 value={{
+                    type: state.type,
                     data: state.data,
                     city: state.city,
                     id: state.id,
@@ -46,6 +64,7 @@ export const WeatherState = props => {
                     maxTemp: state.maxTemp,
                     minTemp: state.minTemp,
                     wind: state.wind,
+                    setType,
                     setLoading,
                     getData
                 }}>{props.children}

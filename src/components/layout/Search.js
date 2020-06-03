@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import WeatherContext from '../../context/weather/weatherContext';
 export const Search = () => {
 
-    const [type,setType] = useState('name');
+    const [type,setType] = useState('');
     const [text,setText] = useState('');
 
     const weatherContext = useContext(WeatherContext);
@@ -12,6 +12,7 @@ export const Search = () => {
 
     const onChange = (e) => {
         setType(e.target.value);
+        weatherContext.setType(e.target.value);
     }
 
     const onSubmit = (e) => {

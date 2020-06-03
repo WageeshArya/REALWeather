@@ -12,7 +12,8 @@ export const Result = () => {
     const clear = <i className="main far fa-sun"></i>;
     const rain = <i className="main fas fa-cloud-showers-heavy"></i>;
     const clouds =<i className="main fas fa-cloud"></i>;
-    const haze = <i className="main fas fa-smog"></i>
+    const haze = <i className="main fas fa-smog"></i>;
+    const smoke = <i class="main fas fa-smog"></i>;
 
     let weather;
 
@@ -21,7 +22,8 @@ export const Result = () => {
         case "Sunny": weather = sunny; break;
         case "Rain": weather = rain; break;
         case "Clouds": weather = clouds; break;
-        case "Haze": weather = haze;break;
+        case "Haze": weather = haze; break;
+        case "Smoke": weather = smoke; break;
         default: ;
     }
 

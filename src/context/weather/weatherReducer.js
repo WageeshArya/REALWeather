@@ -1,4 +1,4 @@
-import {GET_DATA, SET_LOADING, SET_TRUE} from '../types';
+import {GET_DATA, SET_LOADING, SET_TRUE, SET_TYPE} from '../types';
 
 
 export default (state, action) => {
@@ -23,7 +23,7 @@ export default (state, action) => {
                 speed: action.payload.wind.speed,
                 angle: action.payload.wind.deg
             },
-            loading: false
+            loading: false,
         }
         case SET_TRUE: 
             return {
@@ -31,6 +31,11 @@ export default (state, action) => {
                 data: true
             }
          
+        case SET_TYPE:
+            return {
+                ...state,
+                type: action.payload
+            }    
         default: return state;
     }
 }
