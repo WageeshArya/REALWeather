@@ -26,9 +26,9 @@ export const WeatherState = props => {
     let weatherAPIkey;
 
     if(process.env.NODE_ENV !== 'production'){
-        weatherAPIkey = process.env.WEATHER_API_KEY;
-    }else {
         weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
+    }else {
+        weatherAPIkey = process.env.WEATHER_API_KEY;
       }
 
 
