@@ -4,6 +4,14 @@ import axios from 'axios';
 import WeatherContext from './weatherContext';
 import WeatherReducer from './weatherReducer';
 
+let weatherAPIkey;
+
+if(process.env.NODE_ENV !== 'production'){
+    weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
+}else {
+    weatherAPIkey = process.env.WEATHER_API_KEY;
+  }
+
 export const WeatherState = props => {
     const initialState = {
         type: '',
@@ -22,14 +30,6 @@ export const WeatherState = props => {
             angle: ''
         }
     }
-
-    let weatherAPIkey;
-
-    if(process.env.NODE_ENV !== 'production'){
-        weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
-    }else {
-        weatherAPIkey = process.env.WEATHER_API_KEY;
-      }
 
 
     const [state,dispatch] = useReducer(WeatherReducer, initialState);
