@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import WeatherContext from '../../context/weather/weatherContext';
 export const Search = () => {
 
-    const [type,setType] = useState('');
+    const [type,setType] = useState('name');
     const [text,setText] = useState('');
 
     const weatherContext = useContext(WeatherContext);
