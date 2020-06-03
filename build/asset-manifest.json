@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.50af7b75.chunk.css",
+    "main.js": "/static/js/main.2d6dd659.chunk.js",
+    "main.js.map": "/static/js/main.2d6dd659.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a86148e1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a86148e1.js.map",
+    "static/js/2.74340fd7.chunk.js": "/static/js/2.74340fd7.chunk.js",
+    "static/js/2.74340fd7.chunk.js.map": "/static/js/2.74340fd7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.875681b8f4efad283854c7050cbb649d.js": "/precache-manifest.875681b8f4efad283854c7050cbb649d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.50af7b75.chunk.css.map": "/static/css/main.50af7b75.chunk.css.map",
+    "static/js/2.74340fd7.chunk.js.LICENSE.txt": "/static/js/2.74340fd7.chunk.js.LICENSE.txt",
+    "static/media/cornerplants.svg": "/static/media/cornerplants.7c825722.svg",
+    "static/media/cornerplants2.svg": "/static/media/cornerplants2.20fce511.svg",
+    "static/media/cornerplants3.svg": "/static/media/cornerplants3.80aa6a78.svg",
+    "static/media/cornerplants4.svg": "/static/media/cornerplants4.a5f84db2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a86148e1.js",
+    "static/js/2.74340fd7.chunk.js",
+    "static/css/main.50af7b75.chunk.css",
+    "static/js/main.2d6dd659.chunk.js"
+  ]
+}
