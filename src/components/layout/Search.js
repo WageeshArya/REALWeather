@@ -18,10 +18,9 @@ export const Search = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if(text === ""){
-            alert("Please enter something");
+            weatherContext.setError();
         }
         else{
-            console.log(type);
             weatherContext.getData(text,type);
             setText('');
         }

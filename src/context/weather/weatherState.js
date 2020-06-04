@@ -1,11 +1,10 @@
 import React, { useReducer } from 'react';
-import {SET_LOADING, GET_DATA, SET_TRUE, SET_TYPE} from '../types';
+import {SET_LOADING, GET_DATA, SET_DATA, SET_TYPE, SET_ERROR, REMOVE_ERROR, CLEAR_DATA, SET_UNFOUND} from '../types';
 import axios from 'axios';
 import WeatherContext from './weatherContext';
 import WeatherReducer from './weatherReducer';
 
 const weatherAPIkey = process.env.REACT_APP_API_KEY;
-  console.log(weatherAPIkey);
 
 export const WeatherState = props => {
     const initialState = {
@@ -23,7 +22,10 @@ export const WeatherState = props => {
         wind: {
             speed: '',
             angle: ''
-        }
+        },
+        unfound: false,
+        err: false,
+        btn: false
     }
 
 
@@ -36,26 +38,41 @@ export const WeatherState = props => {
     const getData = async (text, type) =>{
         setLoading();
         let res;
-        switch(type){
-            case "name":    
-                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${weatherAPIkey}`);
-                            console.log("name -" + type);
-                            break;
-                
-            case "ID":      
-                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${weatherAPIkey}`); 
-                            console.log("ID -" + type);
-                            break;
+        try {
+            switch(type){
+                case "name":    
+                                res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${weatherAPIkey}`);
+                                dispatch({type: GET_DATA, payload: res.data});
+                                dispatch({type: SET_DATA});
+                                break;
+                    
+                case "ID":      
+                                res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?id=${text}&appid=${weatherAPIkey}`); 
+                                dispatch({type: GET_DATA, payload: res.data});
+                                dispatch({type: SET_DATA});
+                                break;
 
-            case "zip code":
-                            res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${weatherAPIkey}`); 
-                            console.log("zip code -" + type);
-                            break;
-                default: ;
+                case "zip code":
+                                res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${text}&appid=${weatherAPIkey}`); 
+                                dispatch({type: GET_DATA, payload: res.data});
+                                dispatch({type: SET_DATA});
+                                break;
+                    default: ;
+            }
         }
-        console.log(res)
-        dispatch({type: GET_DATA, payload: res.data});
-        dispatch({type: SET_TRUE, payload: true})
+        catch(error) {
+            if(error.response.status === 404){                dispatch({type: SET_UNFOUND});
+            } 
+        }
+    }
+
+    const clearData = () => {
+        dispatch({type: CLEAR_DATA});
+    }
+
+    const setError = () => {
+        dispatch({type: SET_ERROR});
+        setTimeout(() => dispatch({ type: REMOVE_ERROR }), 5000);
     }
 
     return <WeatherContext.Provider
@@ -71,9 +88,14 @@ export const WeatherState = props => {
                     maxTemp: state.maxTemp,
                     minTemp: state.minTemp,
                     wind: state.wind,
+                    btn: state.btn,
+                    err: state.err,
+                    unfound: state.unfound,
                     setType,
                     setLoading,
-                    getData
+                    getData,
+                    clearData,
+                    setError
                 }}>{props.children}
                 </WeatherContext.Provider>
 }

@@ -1,4 +1,9 @@
 export const GET_DATA = 'GET_DATA';
 export const SET_LOADING = 'SET_LOADING';
-export const SET_TRUE = 'SET_TRUE';
+export const SET_DATA = 'SET_DATA';
 export const SET_TYPE = 'SET_TYPE';
+export const SET_ERROR = 'SET_ERROR';
+export const REMOVE_ERROR = 'REMOVE_ERROR';
+export const CLEAR_BUTTON = 'CLEAR_BUTTON';
+export const CLEAR_DATA = 'CLEAR_DATA';
+export const SET_UNFOUND = 'SET_UNFOUND';

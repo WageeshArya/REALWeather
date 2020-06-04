@@ -3,6 +3,8 @@ import Navbar from './components/layout/Navbar';
 import Search from './components/layout/Search';
 import Results from './components/layout/Results';
 import WeatherState from './context/weather/weatherState';
+import ClearBtn from './components/layout/ClearBtn';
+import ShowError from './components/layout/ShowError';
 import './App.css';
 
 
@@ -21,8 +23,10 @@ const App = () => {
       <img src={Back3} alt="backgroundImage" className="img3" />
       <img src={Back4} alt="backgroundImage" className="img4" />
      <Navbar />
+     <ShowError />
      <Search />
      <Results />
+     <ClearBtn />
     </div>
     </WeatherState>
   );
