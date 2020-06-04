@@ -4,13 +4,7 @@ import axios from 'axios';
 import WeatherContext from './weatherContext';
 import WeatherReducer from './weatherReducer';
 
-let weatherAPIkey;
-console.log(process.env); 
-if(process.env.NODE_ENV !== 'production'){
-    weatherAPIkey = process.env.REACT_APP_API_KEY;
-}else {
-    weatherAPIkey = process.env.REACT_APP_WEATHER_API_KEY;
-  }
+const weatherAPIkey = process.env.REACT_APP_API_KEY;
   console.log(weatherAPIkey);
 
 export const WeatherState = props => {
