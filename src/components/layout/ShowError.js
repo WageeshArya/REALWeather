@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react'
+import React, {useContext} from 'react'
 import WeatherContext from '../../context/weather/weatherContext';
 export const ShowError = () => {
     const weatherContext = useContext(WeatherContext);

@@ -25,8 +25,10 @@ export const Result = () => {
         const rain = <i className="main fas fa-cloud-showers-heavy"></i>;
         const clouds =<i className="main fas fa-cloud"></i>;
         const haze = <i className="main fas fa-smog"></i>;
-        const smoke = <i class="main fas fa-smog"></i>;
-        const drizzle = <i class="main fas fa-cloud-rain"></i>;
+        const smoke = <i className="main fas fa-smog"></i>;
+        const drizzle = <i className="main fas fa-cloud-rain"></i>;
+        const thunderstorm = <i className="main fas fa-poo-storm"></i>;
+        const thunder = <i className="main fas fa-bolt"></i>
         let weather;
 
         switch(weatherContext.main){
@@ -38,6 +40,8 @@ export const Result = () => {
             case "Smoke": weather = smoke; break;
             case "Mist": weather = mist; break;
             case "Drizzle": weather = drizzle; break;
+            case "Thunderstorm": weather = thunderstorm; break;
+            case "Thunder": weather = thunder; break;
             default: ;
         }
     
