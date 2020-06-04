@@ -47,7 +47,7 @@ export const Search = () => {
 
                 </div>
                 
-                <input className="button-primary" type="submit" value="submit" />
+                <input className="button-primary submit-btn" type="submit" value="submit" />
             </form>
         </div>
     )

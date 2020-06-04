@@ -1,10 +1,10 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import WeatherState from './context/weather/weatherState';
 import ShowError from './components/layout/ShowError';
-import Home from './components/pages/Home';
-import NotFound from './components/pages/NotFound';
+import Search from './components/layout/Search';
+import Results from './components/layout/Results';
+import ClearBtn from './components/layout/ClearBtn';
 import './App.css';
 
 
@@ -18,7 +18,6 @@ const App = () => {
   return (
 
     <WeatherState>
-    <Router>
       <div className="App">
         <img src={Back1} alt="backgroundImage" className="img1" />
         <img src={Back2} alt="backgroundImage" className="img2" />
@@ -26,14 +25,10 @@ const App = () => {
         <img src={Back4} alt="backgroundImage" className="img4" />
       <Navbar />
       <ShowError />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-
-        <Route component={NotFound} />
-      </Switch>
+      <Search />
+      <Results />
+      <ClearBtn />
     </div>
-    </Router>
     </WeatherState>
   );
 }
