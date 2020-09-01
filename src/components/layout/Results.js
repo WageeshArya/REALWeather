@@ -1,20 +1,25 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useEffect, Fragment, useContext } from 'react';
 import WeatherContext from '../../context/weather/weatherContext';
 import NotFound from '../../img/Scene/15.svg';
 export const Result = () => {
-    
-    const weatherContext = useContext(WeatherContext);
-    if(!weatherContext.data){
-        return <Fragment></Fragment>
-    }
 
-    else if(weatherContext.unfound === true) {
+    const weatherContext = useContext(WeatherContext);
+
+    useEffect(() => {
+
+    },[weatherContext.unfound]);
+
+    if(weatherContext.unfound) {
         return (
             <div className="result unfound">
                 <h3>We're sorry, we couldn't find the area you specified</h3>
                 <img src={NotFound} alt="Not Found" />
             </div>
         )
+    }
+     
+    else if(!weatherContext.data){
+        return <Fragment></Fragment>
     }
 
     else {

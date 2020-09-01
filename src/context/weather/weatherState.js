@@ -35,7 +35,7 @@ export const WeatherState = props => {
 
     const setType = (type) => dispatch({type: SET_TYPE, payload: type })
 
-    const getData = async (text, type) =>{
+    const getData = async (text, type) => {
         setLoading();
         let res;
         try {
@@ -61,7 +61,8 @@ export const WeatherState = props => {
             }
         }
         catch(error) {
-            if(error.response.status === 404){                dispatch({type: SET_UNFOUND});
+            if(error.response.status !== 200){
+                dispatch({type: SET_UNFOUND});
             } 
         }
     }

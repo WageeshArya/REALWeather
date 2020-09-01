@@ -55,12 +55,14 @@ export default (state, action) => {
             return {
                 ...state,
                 data: false,
-                btn: false
+                btn: false,
+                unfound: false
             }
         case SET_UNFOUND: 
             return {
                 ...state,
-                unfound: true
+                unfound: true,
+                btn: true
             }
         default: return state;
     }
